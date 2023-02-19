@@ -1,0 +1,71 @@
+<div class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Login</h4>
+                        <p class="card-category">Please login to your account.</p>
+                    </div>
+                    <br>
+                    <div class="card-body">
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                            <mat-label for="email"><b>Email</b></mat-label>
+                            <mat-form-field class="input_text">
+                                <input class="input_form" matInput type="email" name="email" id="email" formControlName="email"
+                                    required>
+                            </mat-form-field>
+                            <small class="text-danger" role="alert"
+                                *ngIf="(!loginForm.valid && loginForm.get('email')?.errors) && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+                                <div>
+                                    Please enter a valid Email.
+                                </div>
+                            </small>
+                            <br>
+                            <label for="password"><b>Password</b></label> <br>
+                            <mat-form-field class="password_form view-pass">
+                                <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" name="password"
+                                    id="password" required>
+                                <mat-icon class="pointer" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+                                </mat-icon>
+                            </mat-form-field>
+                            <small class="text-danger"
+                                *ngIf="!loginForm.valid && loginForm.get('password')?.errors && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+                                <div>
+                                    Your password must be at least 8 characters long.
+                                </div>
+                            </small>
+                            <br>
+                            <label>
+                                <input type="checkbox" name="remember"> Remember me.
+                                <div class="password">
+                
+                                    <span>Forgot <a href routerLink="/authenticate/forgotPassword">password?</a>
+                                    </span>
+                                </div>
+                            </label>
+                            <button mat-stroked-button type="submit" class="button" class="pointer"
+                                [disabled]="loginForm.invalid" style="background-color: #ccdceb;">Login<span class="material-icons">
+                                    chevron_right
+                                </span></button>
+                            <hr>
+                        </form>
+                        <br>
+                        <div class=" signin">
+                            <span>Do not have an account ? <a href routerLink="/authenticate/register">Sign up</a>.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                    <h1 style="font-weight: bold;">Seeds</h1>
+                    <h2>Best opportunity to grow together.</h2>
+                    <div class="card card-profile">
+                        <img src="/assets/welcome.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>

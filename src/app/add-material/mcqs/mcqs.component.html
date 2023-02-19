@@ -1,0 +1,192 @@
+<!-- <div class="container" role="main">
+
+
+        <form [formGroup]="mcqsForm">
+            <div>
+                <mat-label>Please enter the question.</mat-label>
+                <ul>
+                    <textarea type="text" name="mcqs" id="mcqs" formControlName="mcqs" required> </textarea>
+
+                </ul>
+                <input id="file" type='file' (change)="processFile($event)">
+
+            </div>
+            <div class="options">
+                <mat-label>
+                    Please enter the options.
+                </mat-label>
+                <ul>
+                    <input type="text" name="option1" id="option1" formControlName="option1" required>
+             
+                    <input type="text" name="option2" id="option2" formControlName="option2" required>
+                 
+                    <input type="text" name="option3" id="option3" formControlName="option3" required>
+            
+                    <input type="text" name="option4" id="option4" formControlName="option4" required>
+                </ul>
+            </div>
+            <div class="options">
+                <mat-label>
+                    Please enter the correct answer.
+                    <ul>
+                        <input type="text" name="answer" id="answer" formControlName="answer" required>
+
+                    </ul>
+                </mat-label>
+                <div>
+                    <p>Feedback, If the answer is correct.</p>
+                    <textarea type="text" name="posFeedback" id="posFeedback" formControlName="posFeedback" required> </textarea>
+                    <p>Feedback, If the answer is incorrect.</p>
+                    <textarea type="text" name="negFeedback" id="negFeedback" formControlName="negFeedback" required> </textarea>
+                </div>
+                <button mat-stroked-button [disabled]="mcqsForm.invalid" type="submit" (click)="onSubmit()"
+                    style="width: 40%; text-align: center; font-size: px;">SUBMIT</button>
+            </div>
+
+            <div *ngFor="let question of mcqs; let i = index">
+                <div class="question">
+                    <h2>{{ question.mcqs }}</h2>
+                </div>
+                <img style="width: 70px; height: 70px;" [src]="imageBlobUrl[i]">
+                <span>{{i}}</span>
+                <mat-radio-group>
+                    <ul>
+                        <li>
+                            <h4>
+                                <mat-radio-button value="1">{{ question.option1 }}</mat-radio-button>
+                            </h4>
+                        </li>
+                        <li>
+                            <h4>
+                                <mat-radio-button value="2">{{ question.option2 }}</mat-radio-button>
+                            </h4>
+                        </li>
+                        <li>
+                            <h4>
+                                <mat-radio-button value="3">{{ question.option3 }}</mat-radio-button>
+                            </h4>
+                        </li>
+                        <li>
+                            <h4>
+                                <mat-radio-button value="4">{{ question.option4 }}</mat-radio-button>
+                            </h4>
+                        </li>
+                    </ul>
+                </mat-radio-group>
+                <button (click)="onDelete(question._id)">Delete</button>
+            </div>
+        </form>
+
+</div>
+<br>
+<br> -->
+
+
+<div class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Create MCQs</h4>
+                        <!-- <p class="card-category">Please login to your account.</p> -->
+                    </div>
+                    <br>
+                    <div class="card-body">
+                        <form [formGroup]="mcqsForm">
+                            <div>
+                                <mat-label>Please enter the question.</mat-label>
+                                <ul>
+                                    <textarea type="text" name="mcqs" id="mcqs" formControlName="mcqs" required> </textarea>
+                
+                                </ul>
+                                <input id="file" type='file' (change)="processFile($event)">
+                
+                            </div>
+                            <div class="options">
+                                <mat-label>
+                                    Please enter the options.
+                                </mat-label>
+                                <ul>
+                                    <input type="text" name="option1" id="option1" formControlName="option1" required>
+                             
+                                    <input type="text" name="option2" id="option2" formControlName="option2" required>
+                                 
+                                    <input type="text" name="option3" id="option3" formControlName="option3" required>
+                            
+                                    <input type="text" name="option4" id="option4" formControlName="option4" required>
+                                </ul>
+                            </div>
+                            <div class="options">
+                                <mat-label>
+                                    Please enter the correct answer.
+                                    <ul>
+                                        <input type="text" name="answer" id="answer" formControlName="answer" required>
+                
+                                    </ul>
+                                </mat-label>
+                                <div>
+                                    <p>Feedback, If the answer is correct.</p>
+                                    <textarea type="text" name="posFeedback" id="posFeedback" formControlName="posFeedback" required> </textarea>
+                                    <p>Feedback, If the answer is incorrect.</p>
+                                    <textarea type="text" name="negFeedback" id="negFeedback" formControlName="negFeedback" required> </textarea>
+                                </div>
+                                <button mat-stroked-button [disabled]="mcqsForm.invalid" type="submit" (click)="onSubmit()"
+                                    style="width: 40%; text-align: center; font-size: px;">SUBMIT</button>
+                            </div>
+                
+                            <div *ngFor="let question of mcqs; let i = index">
+                                <div class="question">
+                                    <h2>{{ question.mcqs }}</h2>
+                                </div>
+                                <img style="width: 70px; height: 70px;" [src]="imageBlobUrl[i]">
+                                <audio controls>
+                                    <source [src]="imageBlobUrl[i]" type="audio/mpeg">
+                                  </audio>
+                                <span>{{i}}</span>
+                                <mat-radio-group>
+                                    <ul>
+                                        <li>
+                                            <h4>
+                                                <mat-radio-button value="1">{{ question.option1 }}</mat-radio-button>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <h4>
+                                                <mat-radio-button value="2">{{ question.option2 }}</mat-radio-button>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <h4>
+                                                <mat-radio-button value="3">{{ question.option3 }}</mat-radio-button>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <h4>
+                                                <mat-radio-button value="4">{{ question.option4 }}</mat-radio-button>
+                                            </h4>
+                                        </li>
+                                    </ul>
+                                </mat-radio-group>
+                                <button (click)="onDelete(question._id)">Delete</button>
+                            </div>
+                        </form>
+                        <br>
+                        <div class=" signin">
+                            <span>Do not have an account ? <a href routerLink="/authenticate/register">Sign up</a>.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-4">
+                    <h1 style="font-weight: bold;">Seeds</h1>
+                    <h2>Best opportunity to grow together.</h2>
+                    <div class="card card-profile">
+                        <img src="/assets/welcome.jpg">
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+<br>
+<br>

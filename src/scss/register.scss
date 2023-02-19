@@ -1,0 +1,78 @@
+b {
+    font-family: Arial, 'Garnett';
+  }
+  h1{
+    font-family: 'Garnett';
+  }
+  .register {
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 5rem;
+
+    #accounticon {
+      width: 18rem;
+    }
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    width: 30%;
+    margin: auto;
+    justify-content: center;
+    align-content: center;
+      // box-shadow: 0px 5px 8px 0px #dbe7ff;
+    .input_password {
+      width: 95%;
+      border: none;
+    }
+    .password_form{
+      width:95%;
+    }
+    .input_form{
+      width: 95%;
+    }
+    /* Full-width input fields */
+    .input_text {
+      width: 95%;
+      border: none;
+    }
+    .theme-select-full {
+      width: 95%;
+    }
+    button {
+      background-color: #ccdceb;
+      cursor: pointer;
+      width: auto;
+      font-weight: bold;
+      text-align: center;
+      justify-self: center;
+      display: grid;
+      transition: transform .25s cubic-bezier(.7,.98,.86,.98), box-shadow .25s cubic-bezier(.7,.98,.86,.98);
+      &:hover {
+        transform: scale(1.2);
+        box-shadow: 0 9px 47px 11px rgba(51, 51, 51, 0.18);
+      }
+    }
+    /* Add a blue text color to links */
+    a {
+      color: dodgerblue;
+    }
+    
+    /* Set a grey background color and center the text of the "sign in" section */
+    .signin {
+      text-align: center;
+      margin-top: 18px;
+    }
+    .page{
+      padding-bottom: 120px;
+      padding-top: 30px;
+   }
+    .text-danger{
+      color:rgb(235, 72, 72);
+    }
+  }
+  .page {
+    width: 40%;
+    margin-left: 60px;
+  }

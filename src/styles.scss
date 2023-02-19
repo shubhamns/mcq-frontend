@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~font-awesome/css/font-awesome.css';
+
+@import "./scss/home.scss";
+@import "./scss/header.scss";
+@import "./scss//footer.scss";
+@import "./scss//login.scss";
+@import "./scss//register.scss";
+@import "./scss//forgot_password.scss";
+@import "./scss//profile.scss";
+@import "./scss//material_theme.scss";
+@import "./scss//add-material.scss";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+p {
+    font-size: 18px;
+    color: black;
+}
+
+.blue-snackbar {
+    background: #004e92;
+    color: white;
+    .mat-simple-snackbar-action {
+        color: white !important;
+    }
+  }

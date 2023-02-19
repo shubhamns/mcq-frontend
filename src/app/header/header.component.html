@@ -1,0 +1,50 @@
+<header style="background-color: #ccdceb; border-radius: 1.5rem;">
+  <div class="main-nav">
+    <nav>
+      <ul class="topheader">
+        <a routerLink="">
+          <img src="assets/logo.png" class="logo" alt="Let's Learn" width="60">
+        </a>
+        <div class="header1">
+          <li><a routerLink="">Home</a></li>
+          <li class="pointer"><a>About</a></li>
+          <li class="pointer"><a>Blog</a></li>
+        </div>
+        <div>
+          <li class="icon">
+            <div class="login-icon">
+              <!-- <li class="material-icons" style="color: red;">login</li> -->
+              <!-- <li><a href routerLink="/authenticate/login">Login</a></li> -->
+              <!-- <a routerLink="/profile" (click)="global.setActiveLink(''); global.setSelectedSubMenu('')"
+                  *ngIf="isLoggedIn()">Hello {{global.getItem('name')}}</a> -->
+          <li><a routerLink="/authenticate/login" *ngIf="!isLoggedIn()">Login</a></li>
+          <a routerLink="/user/profile" *ngIf="isLoggedIn()">Hello {{global.getItem('name')}}</a>
+        </div>
+        </li>
+  </div>
+  </ul>
+  <!-- <div class="menu1">
+          <div class="mobile-menu d-none" (click)="openMenu()">
+            Menu
+            <span class="material-icons">menu</span>
+          </div>
+          <nav mat-tab-nav-bar id="menu1">
+
+            <a mat-tab-link *ngFor="let link of global.links; let index = index;"
+              (click)="global.setActiveLink(link); global.setSubActiveLink(''); global.setSelectedSubMenu(link);"
+              [active]="global.getActiveLink() == link" [routerLink]="global.subRoutes[index]">{{link}}</a>
+          </nav>
+        </div> -->
+  <!-- <div *ngIf="global.getSelectedSubMenu()!=''" class="menu1 menu1--menu2" id="menu2">
+          <div class="mobile-menu--sub d-none">
+            Sub-Menu
+          </div>
+          <nav mat-tab-nav-bar>
+            <a mat-tab-link *ngFor="let subLink of global.refreshLink(); let index = index;"
+              (click)="global.setSubActiveLink(subLink);"
+              [active]="global.getSubActiveLink() == subLink" [routerLink]="global.refreshRoutes(index)">{{subLink}}</a>
+          </nav>
+        </div> -->
+  </nav>
+  </div>
+</header>

@@ -1,0 +1,49 @@
+<div class="container" role="main">
+    <div class="login">
+        <form [formGroup]="trueFalseForm">
+            <div>
+                <mat-label>Please enter the question.</mat-label>
+                <ul>
+                    <textarea type="text" name="question" id="question" formControlName="question" required> </textarea>
+
+                </ul>
+                <!-- <input id="file" type='file' (change)="processFile($event)"> -->
+            </div>
+            <div class="options">
+                <mat-label>
+                    Please enter the correct answer either it is true or false.
+                </mat-label>
+                <ul>
+                    <input type="text" name="answer" id="answer" formControlName="answer" required>
+                </ul>
+            </div>
+            <button mat-stroked-button [disabled]="trueFalseForm.invalid" type="submit" (click)="onSubmit()"
+                style="width: 40%; text-align: center; font-size: px;">SUBMIT</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Created Questions List:</h2>
+        <br>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Delete Question?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let question of trueFalse; let i = index">
+                    <td>{{ question.question }}</td>
+                    <td>{{ question.answer }}</td>
+                    <td><button mat-stroked-button class="button" class="pointer"
+                            (click)="onDelete(question._id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+<br>

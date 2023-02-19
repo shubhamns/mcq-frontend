@@ -1,0 +1,221 @@
+<div class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Topics</h4>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="topicTitle">
+                        <p>Please add your topic for material creation.</p>
+                        <hr>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="topicForm" (ngSubmit)="onSubmit()">
+                            <mat-label for="topic"><b>Topic Name</b></mat-label>
+                            <mat-form-field class="input_text">
+                                <input class="input_form" matInput type="text" name="topic" id="topic"
+                                    formControlName="topic" required>
+                            </mat-form-field>
+                            <small class="text-danger" role="alert" *ngIf="(!topicForm.valid && topicForm.get('topic')?.errors) && 
+                                (topicForm.get('topic')?.dirty || topicForm.get('topic')?.touched)">
+                                <div>
+                                    Please enter a Topic.
+                                </div>
+                            </small>
+                            <br>
+
+                            <mat-label for="ageGroup"><b>Please select age group.</b></mat-label>
+                            <mat-form-field appearance="fill">
+                                <mat-label> Choose age group</mat-label>
+                                <mat-select formControlName="ageGroup" name="ageGroup">
+                                    <mat-option *ngFor="let item of age" [value]="item._id">{{item.age}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <small class="text-danger" role="alert" *ngIf="(!topicForm.valid && topicForm.get('ageGroup')?.errors) && 
+                                (topicForm.get('ageGroup')?.dirty || topicForm.get('ageGroup')?.touched)">
+                                <div>
+                                    Please select age group.
+                                </div>
+                            </small>
+                            <br>
+
+                            <mat-label for="language"><b>Please select language.</b></mat-label>
+                            <mat-form-field appearance="fill">
+                                <mat-label> Choose Language</mat-label>
+                                <mat-select formControlName="language">
+                                    <mat-option [value]="lang.language" *ngFor="let lang of language">{{lang.language}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <small class="text-danger" role="alert" *ngIf="(!topicForm.valid && topicForm.get('language')?.errors) && 
+                            (topicForm.get('language')?.dirty || topicForm.get('language')?.touched)">
+                                <div>
+                                    Please select Language.
+                                </div>
+                            </small>
+                            <br>
+
+                            <mat-label for="country"><b>Please select Country.</b></mat-label>
+                            <mat-form-field appearance="fill">
+                                <mat-label> Choose Country</mat-label>
+                                <mat-select formControlName="country">
+                                    <mat-option [value]="con.country" *ngFor="let con of country">{{con.country}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <small class="text-danger" role="alert" *ngIf="(!topicForm.valid && topicForm.get('country')?.errors) && 
+                            (topicForm.get('country')?.dirty || topicForm.get('country')?.touched)">
+                                <div>
+                                    Please select Country.
+                                </div>
+                            </small>
+                            <br>
+
+                            <mat-label for="grade"><b>Please select Grade.</b></mat-label>
+                            <mat-form-field appearance="fill">
+                                <mat-label> Choose Grade</mat-label>
+                                <mat-select formControlName="grade">
+                                    <mat-option [value]="grades.grade" *ngFor="let grades of grade">{{grades.grade}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <small class="text-danger" role="alert" *ngIf="(!topicForm.valid && topicForm.get('grade')?.errors) && 
+                            (topicForm.get('grade')?.dirty || topicForm.get('grade')?.touched)">
+                                <div>
+                                    Please select Grade.
+                                </div>
+                            </small>
+                            <br>
+
+                            <mat-label for="type"><b>Please select type of activity.</b></mat-label>
+                            <mat-form-field appearance="fill">
+                                <mat-label> Choose tpye</mat-label>
+                                <mat-select formControlName="type">
+                                    <mat-option [value]="item.questionType" *ngFor="let item of type">
+                                        {{item.questionType}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <small class="text-danger" role="alert" *ngIf="(!topicForm.valid && topicForm.get('type')?.errors) && 
+                            (topicForm.get('type')?.dirty || topicForm.get('type')?.touched)">
+                                <div>
+                                    Please select Type.
+                                </div>
+                            </small>
+                            <br>
+
+                            <mat-label for="noOfQuestions"><b>Please select no of activities.</b></mat-label>
+                            <mat-form-field appearance="fill">
+                                <mat-label> Choose No</mat-label>
+                                <mat-select formControlName="noOfQuestions">
+                                    <mat-option value="1">1</mat-option>
+                                    <mat-option value="2">2</mat-option>
+                                    <mat-option value="2">3</mat-option>
+                                    <mat-option value="2">4</mat-option>
+                                    <mat-option value="2">5</mat-option>
+                                    <mat-option value="2">6</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <small class="text-danger" role="alert" *ngIf="(!topicForm.valid && topicForm.get('noOfQuestions')?.errors) && 
+                            (topicForm.get('noOfQuestions')?.dirty || topicForm.get('noOfQuestions')?.touched)">
+                                <div>
+                                    Please select no of activities.
+                                </div>
+                            </small>
+                            <br>
+
+                            <mat-label for="time"><b>Time to complete in minutes.</b></mat-label>
+                            <mat-form-field class="input_text">
+                                <input class="input_form" matInput type="number" name="time" id="time"
+                                    formControlName="time" required>
+                            </mat-form-field>
+                            <small class="text-danger" role="alert" *ngIf="(!topicForm.valid && topicForm.get('time')?.errors) && 
+                                (topicForm.get('time')?.dirty || topicForm.get('time')?.touched)">
+                                <div>
+                                    Please enter time.
+                                </div>
+                            </small>
+                            <br>
+
+                            <!-- <mat-label for="access"><b>Please select material privacy.</b></mat-label>
+                            <mat-form-field appearance="fill">
+                                <mat-label> Choose privacy</mat-label>
+                                <mat-select formControlName="access">
+                                    <mat-option value="private">Private</mat-option>
+                                    <mat-option value="public">Public</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <small class="text-danger" role="alert" *ngIf="(!topicForm.valid && topicForm.get('access')?.errors) && 
+                            (topicForm.get('access')?.dirty || topicForm.get('access')?.touched)">
+                                <div>
+                                    Please select Privacy.
+                                </div>
+                            </small>
+                            <br> -->
+
+                            <button mat-stroked-button type="submit" class="button" class="pointer"
+                                [disabled]="topicForm.invalid" style="background-color: #ccdceb;">Create<span
+                                    class="material-icons">
+                                    chevron_right
+                                </span></button>
+                            <hr>
+                        </form>
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="content" role="main">
+                    <div class="card">
+                        <input (keyup)="searchData($event)" type="text" class="form-control" placeholder="Search"
+                            aria-label="Searchbox" aria-describedby="basic-addon1">
+                        <div *ngFor="let topic of topics">
+                            <button>{{topic.topic}}</button>
+                            <span>{{topic.topic}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 style="color: black;">Topic added list:</h2>
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Topic Name</th>
+                        <th>Type</th>
+                        <th>Grade</th>
+                        <th>Create</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let topics of topic; let i = index">
+                        <td>{{ topics.topic }}</td>
+                        <td>{{ topics.type }}</td>
+                        <td>{{ topics.grade }}</td>
+                        <td><button mat-stroked-button class="button" class="pointer" *ngIf="topics.type === 'MCQS'"
+                                [routerLink]="['/material/mcqs/', topics._id]">Create Activity</button>
+                            <button mat-stroked-button class="button" class="pointer"
+                                *ngIf="topics.type === 'True False'"
+                                [routerLink]="['/material/true/', topics._id]">Create Activity</button>
+                            <button mat-stroked-button class="button" class="pointer"
+                                *ngIf="topics.type === 'Open Ended Question'"
+                                [routerLink]="['/material/openEnded/', topics._id]">Create Activity</button>
+                        </td>
+                        <td><button mat-stroked-button class="button" class="pointer"
+                                (click)="onDelete(topics._id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+<br>
+<br>

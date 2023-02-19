@@ -1,0 +1,140 @@
+<!-- <div class="spinnerDiv" *ngIf="loading">
+    <mat-spinner class="spinner"></mat-spinner>
+</div> -->
+<div class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Register</h4>
+                        <p class="card-category">Please Fill all fields.</p>
+                    </div>
+                    <br>
+                    <div class="card-body">
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" style="border: none;">
+                            <label for="email"><b>Email</b></label>
+                            <mat-form-field class="input_text">
+                                <input class="input_form" matInput formControlName="email" type="email" name="email"
+                                    id="email" required>
+                            </mat-form-field>
+                            <small class="text-danger" *ngIf="(!registerForm.valid && registerForm.get('email')?.errors) && 
+                            (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
+                                <div>
+                                    Please enter a valid Email address.
+                                </div>
+
+                            </small>
+                            <br>
+
+                            <label for="name"><b>Full Name</b></label>
+                            <mat-form-field class="input_text">
+                                <input class="input_form" matInput formControlName="name" type="text" name="name"
+                                    id="name">
+                            </mat-form-field>
+                            <small class="text-danger" *ngIf="(!registerForm.valid && registerForm.get('name')?.errors) && 
+                            (registerForm.get('name')?.dirty || registerForm.get('name')?.touched)">
+                                <div>
+                                    Please enter your name.
+                                </div>
+                            </small>
+                            <br>
+
+                            <label for="password"><b>Password</b></label>
+                            <mat-form-field class="password_form view-pass">
+                                <input class="input_form" matInput formControlName="password"
+                                    [type]="hide ? 'password' : 'text'" name="password" id="password" required>
+                                <mat-icon matSuffix class="pointer" (click)="hide = !hide">{{hide ? 'visibility_off' :
+                                    'visibility'}}
+                                </mat-icon>
+                            </mat-form-field>
+                            <small class="text-danger" *ngIf="(!registerForm.valid && registerForm.get('password')?.errors) && 
+                            (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+                                <div>
+                                    Your password must be at least 8 characters long.
+                                </div>
+                            </small>
+                            <br>
+
+                            <label for="psw_repeat"><b>Confirm Password</b></label> <br>
+                            <mat-form-field class="password_form">
+                                <input class="input_password" matInput formControlName="psw_repeat" type="password"
+                                    name="psw_repeat" id="psw_repeat" required>
+                            </mat-form-field>
+                            <small class="text-danger" *ngIf="!registerForm.valid && registerForm.get('psw_repeat')?.errors && 
+                            (registerForm.get('psw_repeat')?.dirty || registerForm.get('psw_repeat')?.touched)">
+                                <div>
+                                    Your password and confirm password must be matched.
+                                </div>
+                            </small>
+                            <br>
+
+                            <label>
+                                <input formControlName="remember" type="checkbox" name="remember" id="remember"
+                                    required>
+                                By creating an account you agree to our<br style="line-height:0;"><a href
+                                    routerLink="/contact/terms">Terms & Privacy</a>.
+                                <small class="text-danger" *ngIf="!registerForm.valid && registerForm.get('remember')?.errors && 
+                                (registerForm.get('remember')?.dirty || registerForm.get('remember')?.touched)">
+                                    <p>Please accept terms and conditions for privacy policy.</p>
+                                </small>
+                            </label>
+                            <br>
+                            <br>
+                            <button mat-stroked-button type="submit" class="button" class="pointer"
+                                [disabled]="registerForm.invalid">Sign
+                                up<span class="material-icons">
+                                    chevron_right
+                                </span></button>
+                            <hr>
+                        </form>
+                        <p>Already have an account? <a href routerLink="/authenticate/login">Login</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="width: 70%;">
+                <h1 style="font-weight: bold;">Seeds</h1>
+                <h2>Best opportunity to grow together.</h2>
+
+                <div class="card card-profile">
+                    <img src="/assets/welcome.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+
+<div class="container" style="max-width: 550px">
+    <h2 class="text-center mb-5">Angular Login with Google</h2>
+    <div *ngIf="isLoggedin === false">
+        <div class="google">
+            <button mat-stroked-button type="button" (click)="loginWithGoogle()" class="button"> <span
+                    class="fa fa-google"></span>
+                Login with Google
+            </button>
+
+        </div>
+    </div>
+    <!-- <div *ngIf="isLoggedin === true">
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" [value]="socialUser.firstName" id="firstname" readonly>
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" [value]="socialUser.lastName" id="lastname" readonly>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" [value]="socialUser.email" id="email" readonly>
+        </div>
+        <button type="button" (click)="logOut()" class="btn btn-primary">Log Out</button>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br> -->
